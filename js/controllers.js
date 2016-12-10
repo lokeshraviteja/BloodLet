@@ -191,9 +191,11 @@ function($scope, $stateParams, $localStorage, $state, $location) {
 ])
 
 
-.controller('redeemPointsCtrl', ['$scope', '$stateParams',
-    function($scope, $stateParams) {
+.controller('redeemPointsCtrl', ['$scope',
+    function($scope) {
 
-
+        $scope.multiplayer = 10;
+        $scope.points = 12;
+        $scope.count = $scope.multiplayer*$scope.points;
     }
 ])
