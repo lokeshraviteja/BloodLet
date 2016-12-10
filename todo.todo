@@ -1,0 +1,14 @@
+ ☐ push to git hub status:(done)
+ Client side code:
+   create an account :- validations
+   Login :- Validations
+   Profile:- Picture upload
+   Home:- Request Tab controller
+          Donors tab controller(details and like button)
+          Redeem Points
+
+
+ Server Side code:
+   create an account:- save form data
+   donate blood/platelet:- save form data
+   save blood/platelet:- save form data
