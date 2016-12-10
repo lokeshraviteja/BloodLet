@@ -1,6 +1,33 @@
 
-<ion-view title="Profile" hide-back-button="true" id="page4">
+<ion-view title="Donors" hide-back-button="true" id="page4">
   <ion-content padding="true" class="has-header">
-    <h1>donor</h1>
+   <style>
+table, th , td  {
+
+  border-collapse: collapse;
+  padding: 5px;
+}
+table tr:nth-child(odd) {
+  background-color: #f1f1f1;
+}
+table tr:nth-child(even) {
+  background-color: #ffffff;
+}
+</style>
+
+<h1 ng-repeat="x in records">{{x}}</h1>
+<table ng-controller="donorsCtrl">
+	<caption>Donor Records</caption>  
+<tr><th>Patient_Name</th><th>Blood_Group</th><th>Patient_Location</th><th>Hospital_Name</th><th>Date</th><th>Action</th></tr>  
+<tr ng-repeat="x in myObj">
+  <td>{{x['patientname']}}</td>
+  <td>{{x['Bloodgroup']}}</td>
+  <td>{{x['patientLocation']}}</td>
+  <td>{{x['Hospital name']}}</td>
+  <td>{{x['Date']}}</td>
+  <td><button>Like</button></td>
+  
+</tr>
+</table>
   </ion-content>
 </ion-view>
