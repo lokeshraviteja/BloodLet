@@ -9,6 +9,11 @@ angular.module('app.controllers', [])
 
 .controller('requestsCtrl', ['$scope', '$stateParams',
     function($scope, $stateParams) {
+
+         $scope.isDisabled =[];
+          $scope.disableButton = function(i) {
+        $scope.isDisabled[i] = true;
+    }
       
 $scope.myObject = [
   {
@@ -43,6 +48,12 @@ $scope.myObject = [
 
 .controller('donorsCtrl', ['$scope', '$stateParams', '$localStorage',
     function($scope, $stateParams, $localStorage) {
+
+        
+         $scope.isDisabled =[];
+          $scope.disableButton = function(i) {
+        $scope.isDisabled[i] = true;
+    }
         
 $scope.myObj = [
   {
