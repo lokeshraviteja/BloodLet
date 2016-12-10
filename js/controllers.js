@@ -10,7 +10,33 @@ angular.module('app.controllers', [])
 .controller('requestsCtrl', ['$scope', '$stateParams',
     function($scope, $stateParams) {
       
-        
+$scope.myObject = [
+  {
+  "donorname":"lokesh",
+  "donorgroup":"B+",
+  "donorContactnumber":"9999999999",
+  "donorlocation":"Hyderabad",
+  },
+  {
+  "donorname":"ravi",
+  "donorgroup":"AB+",
+  "donorContactnumber":"8888888888",
+  "donorlocation":"Delhi",
+  },
+  {
+  "donorname":"teja",
+  "donorgroup":"O+",
+  "donorContactnumber":"9090909090",
+  "donorlocation":"Kolkata",
+  },
+  {
+  "donorname":"Ganesh",
+  "donorgroup":"B-",
+  "donorContactnumber":"8080808080",
+  "donorlocation":"Bangalore",
+  }
+
+]  
 
     }
 ])
@@ -18,7 +44,37 @@ angular.module('app.controllers', [])
 .controller('donorsCtrl', ['$scope', '$stateParams', '$localStorage',
     function($scope, $stateParams, $localStorage) {
         
-        
+$scope.myObj = [
+  {
+  "patientname":"lokesh",
+  "Bloodgroup":"B+",
+   "patientLocation":"Hyderabad",
+   "Hospital name":"Appolo",
+   "Date":"30/12/2016"
+  },
+  {
+  "patientname":"ravi",
+  "Bloodgroup":"AB+",
+   "patientLocation":"Vizag",
+   "Hospital name":"KIMS",
+   "Date":"25/12/2016"
+  },
+  {
+  "patientname":"teja",
+  "Bloodgroup":"B-",
+   "patientLocation":"Mumbai",
+   "Hospital name":"7 Hills",
+   "Date":"30/12/2016"
+  },
+  {
+  "patientname":"Ganesh",
+  "Bloodgroup":"O+",
+   "patientLocation":"Hyderabad",
+   "Hospital name":"Appolo",
+   "Date":"30/12/2016"
+  }
+
+]
     }
 ])
 
