@@ -6,4 +6,14 @@ angular.module('app.services', [])
 
 .service('BlankService', [function(){
 
+}])
+
+.service('LikeService', [function(){
+	this.count = 0;
+	this.getCount = function(){
+		return this.count;
+	};
+	this.incCount = function(){
+		this.count++;
+	}
 }]);

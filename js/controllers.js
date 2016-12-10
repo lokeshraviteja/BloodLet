@@ -9,72 +9,66 @@ angular.module('app.controllers', [])
 
 .controller('requestsCtrl', ['$scope', '$stateParams',
     function($scope, $stateParams) {
-      
-$scope.myObject = [
-  {
-  "donorname":"lokesh",
-  "donorgroup":"B+",
-  "donorContactnumber":"9999999999",
-  "donorlocation":"Hyderabad",
-  },
-  {
-  "donorname":"ravi",
-  "donorgroup":"AB+",
-  "donorContactnumber":"8888888888",
-  "donorlocation":"Delhi",
-  },
-  {
-  "donorname":"teja",
-  "donorgroup":"O+",
-  "donorContactnumber":"9090909090",
-  "donorlocation":"Kolkata",
-  },
-  {
-  "donorname":"Ganesh",
-  "donorgroup":"B-",
-  "donorContactnumber":"8080808080",
-  "donorlocation":"Bangalore",
-  }
 
-]  
+        $scope.myObject = [{
+                "donorname": "lokesh",
+                "donorgroup": "B+",
+                "donorContactnumber": "9999999999",
+                "donorlocation": "Hyderabad",
+            }, {
+                "donorname": "ravi",
+                "donorgroup": "AB+",
+                "donorContactnumber": "8888888888",
+                "donorlocation": "Delhi",
+            }, {
+                "donorname": "teja",
+                "donorgroup": "O+",
+                "donorContactnumber": "9090909090",
+                "donorlocation": "Kolkata",
+            }, {
+                "donorname": "Ganesh",
+                "donorgroup": "B-",
+                "donorContactnumber": "8080808080",
+                "donorlocation": "Bangalore",
+            }
+
+        ]
 
     }
 ])
 
-.controller('donorsCtrl', ['$scope', '$stateParams', '$localStorage',
-    function($scope, $stateParams, $localStorage) {
-        
-$scope.myObj = [
-  {
-  "patientname":"lokesh",
-  "Bloodgroup":"B+",
-   "patientLocation":"Hyderabad",
-   "Hospital name":"Appolo",
-   "Date":"30/12/2016"
-  },
-  {
-  "patientname":"ravi",
-  "Bloodgroup":"AB+",
-   "patientLocation":"Vizag",
-   "Hospital name":"KIMS",
-   "Date":"25/12/2016"
-  },
-  {
-  "patientname":"teja",
-  "Bloodgroup":"B-",
-   "patientLocation":"Mumbai",
-   "Hospital name":"7 Hills",
-   "Date":"30/12/2016"
-  },
-  {
-  "patientname":"Ganesh",
-  "Bloodgroup":"O+",
-   "patientLocation":"Hyderabad",
-   "Hospital name":"Appolo",
-   "Date":"30/12/2016"
-  }
+.controller('donorsCtrl', ['$scope', '$stateParams', '$localStorage','LikeService',
+    function($scope, $stateParams, $localStorage,LikeService) {
+        $scope.like = function(){
+            LikeService.incCount();
+        }
+        $scope.myObj = [{
+                "patientname": "lokesh",
+                "Bloodgroup": "B+",
+                "patientLocation": "Hyderabad",
+                "Hospital name": "Appolo",
+                "Date": "30/12/2016"
+            }, {
+                "patientname": "ravi",
+                "Bloodgroup": "AB+",
+                "patientLocation": "Vizag",
+                "Hospital name": "KIMS",
+                "Date": "25/12/2016"
+            }, {
+                "patientname": "teja",
+                "Bloodgroup": "B-",
+                "patientLocation": "Mumbai",
+                "Hospital name": "7 Hills",
+                "Date": "30/12/2016"
+            }, {
+                "patientname": "Ganesh",
+                "Bloodgroup": "O+",
+                "patientLocation": "Hyderabad",
+                "Hospital name": "Appolo",
+                "Date": "30/12/2016"
+            }
 
-]
+        ]
     }
 ])
 
@@ -86,25 +80,26 @@ $scope.myObj = [
 ])
 
 .controller('loginCtrl', ['$scope', '$stateParams', '$localStorage', '$state', '$location',
-function($scope, $stateParams, $localStorage, $state, $location) {
+    function($scope, $stateParams, $localStorage, $state, $location) {
 
-    $scope.login = function() {
-        console.log("Login", $localStorage.user);
-        if ($localStorage.user) {
-            if ($localStorage.user.username == $scope.login.username && $localStorage.user.password == $scope.login.password) {
+        $scope.login = function() {
+            console.log("Login", $localStorage.user);
+            if ($localStorage.user) {
+                if ($localStorage.user.username == $scope.login.username && $localStorage.user.password == $scope.login.password) {
 
 
-                $location.path('/page1/page2');
+                    $location.path('/page1/page2');
+                } else {
+                    alert("InValid username/password If u dont have an account please sign in");
+                }
             } else {
-                alert("InValid username/password If u dont have an account please sign in");
+                alert("Invalid user name or password")
+
             }
-        } else {
-            alert("Invalid user name or password")
-
         }
-    }
 
-}])
+    }
+])
 
 .controller('createAnAccountCtrl', ['$scope', '$stateParams', '$localStorage',
     function($scope, $stateParams, $localStorage) {
@@ -247,11 +242,10 @@ function($scope, $stateParams, $localStorage, $state, $location) {
 ])
 
 
-.controller('redeemPointsCtrl', ['$scope',
-    function($scope) {
-
+.controller('redeemPointsCtrl', ['$scope', 'LikeService',
+    function($scope,LikeService) {
+        
         $scope.multiplayer = 10;
-        $scope.points = 12;
-        $scope.count = $scope.multiplayer*$scope.points;
+        $scope.LikeService = LikeService
     }
 ])
