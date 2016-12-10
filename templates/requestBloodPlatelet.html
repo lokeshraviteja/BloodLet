@@ -1,0 +1,49 @@
+<ion-view title="Request Blood/Platelet" id="page15">
+  <ion-content padding="true" class="has-header">
+    <form id="requestBloodPlatelet-form6" class="list">
+      <label class="item item-input" id="requestBloodPlatelet-textarea5">
+        <span class="input-label">Patient's Name</span>
+        <input type="text" ng-model="$store1.patientname" placeholder="">
+        </label>
+      <label class="item item-input" id="requestBloodPlatelet-textarea7">
+        <span class="input-label">Patient's age</span>
+        <input type="text" ng-model="$store1.age" placeholder=""></label>
+      <label class="item item-select" id="requestBloodPlatelet-select3">
+        <span class="input-label">Blood Group</span>
+        <select ng-model="$store1.bloodgroup">
+          <option>A+</option>
+          <option>A-</option>
+          <option>B+</option>
+          <option>B-</option>
+          <option>AB+</option>
+          <option>AB-</option>
+          <option>O+</option>
+          <option>O--</option>
+        </select>
+      </label>
+      <label class="item item-input" id="requestBloodPlatelet-textarea9">
+        <span class="input-label">Blood needed on DD/MM/YY</span>
+        <input type="text" ng-model="$store1.date" placeholder=""></label>
+      <label class="item item-input" id="requestBloodPlatelet-textarea10">
+        <span class="input-label">No.of.Units Required:</span>
+        <input type="text" ng-model="$store1.units" placeholder="">
+        </label>
+      <label class="item item-select" id="requestBloodPlatelet-select4">
+        <span class="input-label">Blood/Platelets</span>
+        <select ng-model="$store1.bloodorplatelets">
+          <option>Blood</option>
+          <option>Platelets</option>
+        </select>
+      </label>
+      <label class="item item-input" id="requestBloodPlatelet-textarea11">
+        <span class="input-label">Location</span>
+        <input type="text" ng-model="$store1.patientLocation" placeholder="">
+      </label>
+      <label class="item item-input" id="requestBloodPlatelet-textarea12">
+        <span class="input-label">Hospital Name</span>
+        <input type="text" ng-model="$store1.hospitalname" placeholder="">
+        </label>
+    </form>
+    <a ui-sref="tabsController.bloodCamps" id="requestBloodPlatelet-button11" class="button button-positive  button-block" ng-click="requestDetails()">Request</a>
+  </ion-content>
+</ion-view>

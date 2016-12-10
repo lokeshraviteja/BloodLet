@@ -1,0 +1,47 @@
+<ion-view title="Create an account" id="page6">
+  <ion-content padding="true" class="has-header">
+    <form id="createAnAccount-form2" class="list">
+      <ion-list id="createAnAccount-list2">
+        <label class="item item-input" id="createAnAccount-input3">
+          <span class="input-label">Username</span>
+          <input type="text" ng-model="register.username" placeholder="">
+        </label>
+        <label class="item item-input" id="createAnAccount-input4">
+          <span class="input-label">EmailID</span>
+          <input type="email" ng-model="register.email" placeholder="">
+        </label>
+        <label class="item item-input" id="createAnAccount-input5">
+          <span class="input-label">Password</span>
+          <input type="password" ng-model="register.password" placeholder="">
+        </label>
+        <label class="item item-input" id="createAnAccount-input5">
+          <span class="input-label">Confirm Password</span>
+          <input type="password" ng-model="register.confirmpassword" placeholder="">
+        </label>
+        <label class="item item-input" id="createAnAccount-input6">
+          <span class="input-label">Contact Number</span>
+          <input type="text" ng-model="register.phone" placeholder="">
+        </label>
+        <label class="item item-select" id="createAnAccount-select1">
+          <span class="input-label">Blood Group</span>
+          <select ng-model="register.group">
+            <option>A+</option>
+            <option>A-</option>
+            <option>B+</option>
+            <option>B-</option>
+            <option>AB+</option>
+            <option>AB-</option>
+            <option>O+</option>
+            <option>O-</option>
+          </select>
+        </label>
+        <label class="item item-input" id="createAnAccount-input6">
+          <span class="input-label">Location</span>
+          <input type="text" ng-model="register.Location" placeholder="">
+        </label>
+      </ion-list>
+      <!--<ion-item id="createAnAccount-list-item1">Location</ion-item>-->
+      <a ui-sref="login" id="createAnAccount-button3" class="button button-stable  button-block" ng-click="Save()">Sign up</a>
+    </form>
+  </ion-content>
+</ion-view>

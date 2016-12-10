@@ -1,0 +1,40 @@
+<ion-view title="Donate Blood/Platelet" id="page16">
+  <ion-content padding="true" class="has-header">
+    <form id="donateBloodPlatelet-form7" class="list">
+      <label class="item item-input" id="donateBloodPlatelet-textarea13">
+        <span class="input-label">Name</span>
+        <input type="text" ng-model="$store2.donorname" placeholder="">
+      </label>
+      <label class="item item-select" id="donateBloodPlatelet-select5">
+        <span class="input-label">Blood Group</span>
+        <select ng-model="$store2.donorgroup">
+          <option>A+</option>
+          <option>A-</option>
+          <option>B+</option>
+          <option>B-</option>
+          <option>AB+</option>
+          <option>AB-</option>
+          <option>O+</option>
+          <option>O-</option>
+        </select>
+      </label>
+      <label class="item item-input" id="donateBloodPlatelet-textarea14">
+        <span class="input-label">Email</span>
+        <input type="text" ng-model="$store2.donoremail" placeholder="">
+      </label>
+      <label class="item item-input" id="donateBloodPlatelet-textarea15">
+        <span class="input-label">Contact Number</span>
+        <input type="text" ng-model="$store2.donorContactnumber" placeholder="">
+      </label>
+      <label class="item item-input" id="donateBloodPlatelet-textarea16">
+        <span class="input-label">Age</span>
+        <input type="text" ng-model="$store2.donorage" placeholder="">
+      </label>
+      <label class="item item-input" id="donateBloodPlatelet-textarea17">
+        <span class="input-label">Location</span>
+        <input type="text" ng-model="$store2.donorlocation" placeholder="">
+      </label>
+    </form>
+    <a ui-sref="tabsController.bloodCamps" id="donateBloodPlatelet-button12" class="button button-positive  button-block" ng-click="donationDetails()">Save</a>
+  </ion-content>
+</ion-view>

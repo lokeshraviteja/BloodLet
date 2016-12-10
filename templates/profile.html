@@ -1,0 +1,34 @@
+<ion-view title="Profile" hide-back-button="true" id="page14">
+  <ion-content padding="true" class="has-header">
+    <div style="margin: 0px; line-height: 250px; background-color: rgb(232, 235, 239); text-align: center;">
+      <i class="icon ion-image" style="font-size: 64px; color: rgb(136, 136, 136); vertical-align: middle;"></i>
+    </div>
+    <form id="profile-form5" class="list">
+      <label class="item item-input" id="profile-textarea2">
+        <span class="input-label">Name</span><input type="text" ng-model="$store3.profilename" placeholder="">
+        </label>
+      <label class="item item-input" id="profile-textarea3">
+        <span class="input-label">Phone</span>
+        <input type="text" ng-model="$store3.profilephone" placeholder="">
+        </label>
+      <label class="item item-input" id="profile-textarea4">
+        <span class="input-label">Location</span>
+        <input type="text" ng-model="$store3.profilelocation" placeholder="">
+        </label>
+      <label class="item item-select" id="profile-select2">
+        <span class="input-label">Blood Group</span>
+        <select ng-model="$store3.profilebloodgroup">
+          <option>A+</option>
+          <option>A-</option>
+          <option>B+</option>
+          <option>B-</option>
+          <option>AB+</option>
+          <option>AB-</option>
+          <option>O+</option>
+          <option>O-</option>
+        </select>
+      </label>
+    </form>
+    <a ui-sref="tabsController.bloodCamps" id="donateBloodPlatelet-button12" class="button button-positive  button-block" ng-click="profileDetails()">Save your profile</a>
+  </ion-content>
+</ion-view>
