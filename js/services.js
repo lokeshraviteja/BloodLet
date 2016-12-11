@@ -16,4 +16,4 @@ angular.module('app.services', [])
 	this.incCount = function(){
 		this.count++;
 	}
-}]);
+}])

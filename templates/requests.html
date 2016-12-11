@@ -1,13 +1,27 @@
 <ion-view title="Profile" hide-back-button="true" id="page3">
   <ion-content padding="true" class="has-header">
+   <style>
+table, th , td  {
+
+  border-collapse: collapse;
+  padding: 5px;
+}
+table tr:nth-child(odd) {
+  background-color: #f1f1f1;
+}
+table tr:nth-child(even) {
+  background-color: #ffffff;
+}
+</style>
     <table ng-controller="requestsCtrl">
 	<caption>Donor Records</caption>  
-<tr><th>Donor_Name</th><th>Blood_Group</th><th>Contact_Number</th><th>Donor_Location</th></tr>  
+<tr><th>Donor_Name</th><th>Blood_Group</th><th>Contact_Number</th><th>Donor_Location</th><th>Action</th></tr>  
 
 <tr ng-repeat="y in myObject">
   <td>{{y['donorname']}}</td>
   <td>{{y['donorgroup']}}</td>
   <td>{{y['donorContactnumber']}}</td>
   <td>{{y['donorlocation']}}</td>
+  <td><button type="submit" ng-disabled="isDisabled[$index]" ng-click="disableButton($index)">Accept</button></td>
   </ion-content>
 </ion-view>

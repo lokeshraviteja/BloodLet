@@ -10,6 +10,11 @@ angular.module('app.controllers', [])
 .controller('requestsCtrl', ['$scope', '$stateParams',
     function($scope, $stateParams) {
 
+        $scope.isDisabled = [];
+        $scope.disableButton = function(i) {
+            $scope.isDisabled[i] = true;
+        }
+
         $scope.myObject = [{
                 "donorname": "lokesh",
                 "donorgroup": "B+",
@@ -34,14 +39,24 @@ angular.module('app.controllers', [])
 
         ]
 
+
     }
 ])
 
-.controller('donorsCtrl', ['$scope', '$stateParams', '$localStorage','LikeService',
-    function($scope, $stateParams, $localStorage,LikeService) {
-        $scope.like = function(){
+
+.controller('donorsCtrl', ['$scope', '$stateParams', '$localStorage', 'LikeService',
+    function($scope, $stateParams, $localStorage, LikeService) {
+        $scope
+
+        $scope.like = function() {
             LikeService.incCount();
         }
+        $scope.isDisabled = [];
+        $scope.disableButton = function(i) {
+            $scope.like();
+            $scope.isDisabled[i] = true;
+        }
+
         $scope.myObj = [{
                 "patientname": "lokesh",
                 "Bloodgroup": "B+",
@@ -66,6 +81,13 @@ angular.module('app.controllers', [])
                 "patientLocation": "Hyderabad",
                 "Hospital name": "Appolo",
                 "Date": "30/12/2016"
+            }
+            , {
+                 "patientname": $localStorage.donorname,
+                "Bloodgroup": $localStorage.donorgroup,
+                "patientLocation": $localStorage.donorlocation,
+                "Hospital name": $localStorage.hospitalname,
+                "Date": $localStorage.date
             }
 
         ]
@@ -101,13 +123,18 @@ angular.module('app.controllers', [])
     }
 ])
 
-.controller('createAnAccountCtrl', ['$scope', '$stateParams', '$localStorage',
-    function($scope, $stateParams, $localStorage) {
+.controller('createAnAccountCtrl', ['$scope', '$stateParams', '$localStorage', '$state',
+    function($scope, $stateParams, $localStorage, $state) {
         $scope.register = {};
         $scope.Save = function() {
             console.log("sign", $scope.register);
             $localStorage.user = $scope.register;
-
+            if($scope.register.username && $scope.register.password&&$scope.register.password==$scope.register.confirmpassword){
+            $state.go('login');
+        }
+        else{
+            alert("InValid username/password");
+        }
         }
 
 
@@ -154,9 +181,8 @@ angular.module('app.controllers', [])
         $scope.$store3 = $localStorage;
         console.log("$store ", $scope.$store3);
 
-        $scope.profileDetails = function() {
 
-
+        $scope.profileDetails = function() { 
             var proname = $localStorage.profilename;
             var prophone = $localStorage.profilephone;
             var prolocation = $localStorage.profilelocation;
@@ -166,10 +192,18 @@ angular.module('app.controllers', [])
             console.log("Profile phone", prophone);
             console.log("Profile Location", prolocation);
             console.log("Profile Blood Group", profilebgroup);
-
-
         }
-
+               $scope.loadFile = function(event) {
+                    var reader = new FileReader();
+                    reader.onload = function() {
+                        var output = document.getElementById('output');
+                        output.src = reader.result;
+                         $scope.$apply(function(){
+                            $scope.hasDP = true;
+                         });
+                    };
+                    reader.readAsDataURL(event.target.files[0]);
+                };
 
 
     }
@@ -209,7 +243,7 @@ angular.module('app.controllers', [])
     }
 ])
 
-.controller('donateBloodPlateletCtrl', ['$scope', '$stateParams', '$localStorage',
+.controller('donateBloodPlateletCtrl', ['$scope', '$stateParams', '$localStorage', 
     function($scope, $stateParams, $localStorage) {
 
         console.log("$localStorage ", $localStorage);
@@ -234,6 +268,8 @@ angular.module('app.controllers', [])
             console.log("donor age", dage);
             console.log("donor Location", dlocation);
 
+
+
         }
 
 
@@ -243,9 +279,9 @@ angular.module('app.controllers', [])
 
 
 .controller('redeemPointsCtrl', ['$scope', 'LikeService',
-    function($scope,LikeService) {
-        
+    function($scope, LikeService) {
+
         $scope.multiplayer = 10;
-        $scope.LikeService = LikeService
+        $scope.LikeService = LikeService;
     }
 ])
